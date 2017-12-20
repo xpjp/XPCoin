@@ -1,11 +1,11 @@
 Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?rev=174
-Upstream-Name: Novacoin
+Upstream-Name: XP
 Upstream-Contact: Alex D. <balthazar.ad@gmail.com>
-Source: http://sourceforge.net/projects/novacoin/files/
- https://github.com/novacoin-project/novacoin
+Source: http://sourceforge.net/projects/XP/files/
+ https://github.com/XP-project/XP
 
 Files: *
-Copyright: 2012-2015, Novacoin Developers
+Copyright: 2012-2015, XP Developers
 License: Expat
 
 Files: *

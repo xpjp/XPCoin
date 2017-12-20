@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2013-2015 The Novacoin developers
+// Copyright (c) 2013-2015 The XP developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -31,18 +31,13 @@ typedef std::map<int, unsigned int> MapModifierCheckpoints;
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     boost::assign::map_list_of
-        ( 0, 0x0e00670bu )
-        ( 12661, 0x5d84115du )
-        (143990, 0x9c592c78u )
-        (149000, 0x48f2bdc4u )
-        (160000, 0x789df0f0u )
-        (200000, 0x01ec1503u )
+        ( 1999999999, 0x0e00670bu )
     ;
 
 // Hard checkpoints of stake modifiers to ensure they are deterministic (testNet)
 static std::map<int, unsigned int> mapStakeModifierCheckpointsTestNet =
     boost::assign::map_list_of
-        ( 0, 0x0e00670bu )
+        ( 1999999999, 0x0e00670bu )
     ;
 
 // Pregenerated entropy bits table (from genesis to #9689)

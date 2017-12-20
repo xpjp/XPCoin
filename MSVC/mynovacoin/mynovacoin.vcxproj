@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{00225DF0-9DDB-41A2-972B-56DC24E2C995}</ProjectGuid>
-    <ProjectName>NovacoinD</ProjectName>
+    <ProjectName>XPD</ProjectName>
     <SccProjectName>SAK</SccProjectName>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>

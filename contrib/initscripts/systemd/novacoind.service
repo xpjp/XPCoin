@@ -1,11 +1,11 @@
 [Unit]
-Description=Novacoin daemon serivce
+Description=XP daemon serivce
 After=network.target
 
 [Service]
 Type=simple
-User=novacoin
-ExecStart=/opt/novacoin/novacoind
+User=XP
+ExecStart=/opt/XP/XPd
 
 [Install]
 WantedBy=multi-user.target

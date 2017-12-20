@@ -20,18 +20,18 @@ sudo apt-get install  libglew-dev libcheese7 libcheese-gtk23 libclutter-gst-2.0-
 openSUSE(проверено на версии 13.2):
  sudo zypper install git gcc gcc-c++ libqt4-devel boost-devel libopenssl-devel libdb-4_8-devel libqrencode3
 
-После того, как установка завершалась, можно клонировать Novacoin репозитарий
+После того, как установка завершалась, можно клонировать XP репозитарий
 
- git clone https://github.com/novacoin-project/novacoin.git
+ git clone https://github.com/XP-project/XP.git
 
 и наконец, скомпилировать свой клиент
 
- cd novacoin
+ cd XP
  qmake USE_O3=1 USE_ASM=1 (если хотите LevelDB, то USE_LEVELDB=1)  
  make
  cd src
  make -f makefile.unix USE_O3=1 USE_ASM=1 (если хотите LevelDB, то USE_LEVELDB=1) 
- strip novacoind      
+ strip XPd      
 
 Команды выше компилируют бинарные файлы с динамической линковкой, если вы хотите со статической линковкой и ваш дистрибутив содержит статические библиотеки(.a , а не .so), то добавьте:
 -в команду qmake: 
@@ -42,10 +42,10 @@ openSUSE(проверено на версии 13.2):
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Novacoin файлами.
+3) Распакуйте программу в папку с бинарными XP файлами.
 4) Введите в терминале
-./upx -9 novacoind
+./upx -9 XPd
 затем
-./upx -9 novacoin-qt
+./upx -9 XP-qt
 
-И ваши novacoind и novacoin-qt станут меньше ~ в 3 раза.
+И ваши XPd и XP-qt станут меньше ~ в 3 раза.

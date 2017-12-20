@@ -143,12 +143,12 @@ mingw32-make
 Будем хранить исходники в папке C:\MyProjects
 
 3.1 Скачиваем исходники
--Зайдите на сайт https://github.com/novacoin-project/novacoin 
+-Зайдите на сайт https://github.com/XP-project/XP 
 -Нажмите Download ZIP
--Распакуйте novacoin-master.zip в C:\MyProjects
+-Распакуйте XP-master.zip в C:\MyProjects
 
-3.2 Собираем novacoind 
--Перейдите в папку C:\MyProjects\novacoin-master\src
+3.2 Собираем XPd 
+-Перейдите в папку C:\MyProjects\XP-master\src
 -Откройте файл makefile.mingw в текстовом редакторе.(При написании инструкции использовался WordPad)
 -Добавьте  строчку USE_ASM:=1
 -Поменяйте текущие INCLUDEPATHS, LIBPATHS, LIBS на:
@@ -206,9 +206,9 @@ obj/txdb-leveldb.o: leveldb/libleveldb.a
 
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/MyProjects/novacoin-master/src
+cd /c/MyProjects/XP-master/src
 make -f makefile.mingw
-strip novacoind.exe
+strip XPd.exe
 
 Если у вас возникает ошибка "make: cc: Command not found", то поменяйте в файле makefile.mingw
 
@@ -216,18 +216,18 @@ strip novacoind.exe
 на
  gcc -c $(xCXXFLAGS) -MMD -o $@ $<
 
-Если всё сделано правильно, то файл novacoind.exe будет находится в папке C:\MyProjects\novacoin-master\src 
+Если всё сделано правильно, то файл XPd.exe будет находится в папке C:\MyProjects\XP-master\src 
 
 
-3.3 Собираем Novacoin QT
+3.3 Собираем XP QT
 
-Внимание: Если вы хотите собирать Novacoin Qt с LevelDB, но пропустили шаг со сборкой novacoind.exe, то 
+Внимание: Если вы хотите собирать XP Qt с LevelDB, но пропустили шаг со сборкой XPd.exe, то 
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/myprojects/novacoin-master/src/leveldb
+cd /c/myprojects/XP-master/src/leveldb
 TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
 
--Откройте файл C:\MyProjects\novacoin-master\novacoin-qt.pro в текстовом редакторе(при написании инструкции использовался WordPad)
+-Откройте файл C:\MyProjects\XP-master\XP-qt.pro в текстовом редакторе(при написании инструкции использовался WordPad)
 -Ниже 
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -265,52 +265,52 @@ windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX -Wl,-Bstatic -lpthread -Wl,-Bdy
 на
 windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX
 
--Сохраните измененный файл novacoin-qt.pro
+-Сохраните измененный файл XP-qt.pro
 -Откройте командную строку Windows и выполните следующий код:
 
 Qt5 + транзакционный индекс BDB 
 
 set PATH=%PATH%;C:\Qt\5.4.0\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_ASM=1" novacoin-qt.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_ASM=1" XP-qt.pro
 mingw32-make -f Makefile.Release
 
 
 Qt5 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\5.4.0\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" novacoin-qt.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" XP-qt.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс BDB
 
 set PATH=%PATH%;C:\Qt\4.8.6\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_ASM=1" novacoin-qt.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_ASM=1" XP-qt.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\4.8.6\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" novacoin-qt.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" XP-qt.pro
 mingw32-make -f Makefile.Release
 
 
 
-Если всё сделано правильно, то файл novacoin-qt.exe будет находится в папке C:\MyProjects\novacoin-master\release
+Если всё сделано правильно, то файл XP-qt.exe будет находится в папке C:\MyProjects\XP-master\release
 
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Novacoin файлами.
+3) Распакуйте программу в папку с бинарными XP файлами.
 4) Введите в консоли
-upx -9 novacoind.exe
+upx -9 XPd.exe
 затем
-upx -9 novacoin-qt.exe
+upx -9 XP-qt.exe
 
-И ваши novacoind и novacoin-qt станут меньше ~ в 3 раза.
+И ваши XPd и XP-qt станут меньше ~ в 3 раза.
 
 
 
@@ -414,7 +414,7 @@ mingw32-make
 
 3.1 Так же как 32 bit
 
-3.2 Собираем novacoind 
+3.2 Собираем XPd 
 -Измените makefile.mingw так же как в 32 bit
 -Откройте файл makefile.mingw в текстовом редакторе и сохраните его как makefile.ming64
 -Измените в INCLUDEPATHS и LIBPATHS /c/deps/ на /c/deps/x64/
@@ -422,39 +422,39 @@ mingw32-make
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static 
 на 
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,-static, -static-libgcc
--Удалите (если они есть)obj(.o) файлы из C:\MyProjects\novacoin-master\src\obj , если остались после 32 bit
--Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\novacoin-master\src\leveldb
+-Удалите (если они есть)obj(.o) файлы из C:\MyProjects\XP-master\src\obj , если остались после 32 bit
+-Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\XP-master\src\leveldb
 -Удалите (если они есть)obj(.o) файлы из 
-C:\MyProjects\novacoin-master\src\leveldb\db 
-C:\MyProjects\novacoin-master\src\leveldb\helpers\memenv
-C:\MyProjects\novacoin-master\src\leveldb\port
-C:\MyProjects\novacoin-master\src\leveldb\table
-C:\MyProjects\novacoin-master\src\leveldb\util
+C:\MyProjects\XP-master\src\leveldb\db 
+C:\MyProjects\XP-master\src\leveldb\helpers\memenv
+C:\MyProjects\XP-master\src\leveldb\port
+C:\MyProjects\XP-master\src\leveldb\table
+C:\MyProjects\XP-master\src\leveldb\util
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/MyProjects/novacoin-master/src
+cd /c/MyProjects/XP-master/src
 make -f makefile.mingw64
-strip novacoind.exe
+strip XPd.exe
 
-Если всё сделано правильно, то файл novacoind.exe будет находится в папке C:\MyProjects\novacoin-master\src 
+Если всё сделано правильно, то файл XPd.exe будет находится в папке C:\MyProjects\XP-master\src 
 
 
-3.3 Собираем Novacoin QT
-Внимание: Если вы хотите собирать Novacoin Qt с LevelDB, но пропустили шаг со сборкой novacoind.exe, то 
--Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\novacoin-master\src\leveldb
+3.3 Собираем XP QT
+Внимание: Если вы хотите собирать XP Qt с LevelDB, но пропустили шаг со сборкой XPd.exe, то 
+-Удалите (если они есть)libleveldb.a и libmemenv.a в папке C:\MyProjects\XP-master\src\leveldb
 -Удалите (если они есть)obj(.o) файлы из 
-C:\MyProjects\novacoin-master\src\leveldb\db 
-C:\MyProjects\novacoin-master\src\leveldb\helpers\memenv
-C:\MyProjects\novacoin-master\src\leveldb\port
-C:\MyProjects\novacoin-master\src\leveldb\table
-C:\MyProjects\novacoin-master\src\leveldb\util
+C:\MyProjects\XP-master\src\leveldb\db 
+C:\MyProjects\XP-master\src\leveldb\helpers\memenv
+C:\MyProjects\XP-master\src\leveldb\port
+C:\MyProjects\XP-master\src\leveldb\table
+C:\MyProjects\XP-master\src\leveldb\util
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/myprojects/novacoin-master/src/leveldb
+cd /c/myprojects/XP-master/src/leveldb
 TARGET_OS=NATIVE_WINDOWS make libleveldb.a libmemenv.a
 
--Измените файл novacoin-qt.pro так же как в 32 bit
--Откройте файл novacoin-qt.pro в текстовом редакторе и сохраните его как novacoin-qt64.pro
+-Измените файл XP-qt.pro так же как в 32 bit
+-Откройте файл XP-qt.pro в текстовом редакторе и сохраните его как XP-qt64.pro
 -Замените в INCLUDE и LIB путях текст C:/deps на текст C:/deps/x64 (то есть вместо C:/deps/boost_1_57_0 нужно C:/deps/x64/boost_1_57_0 и т.д.)
 -Замените 
 win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static 
@@ -466,41 +466,41 @@ win32:QMAKE_LFLAGS *= -Wl,-static
 Qt5 + транзакционный индекс BDB 
 
 set PATH=%PATH%;C:\Qt\5.4.0-x64\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_ASM=1" novacoin-qt64.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_ASM=1" XP-qt64.pro
 mingw32-make -f Makefile.Release
 
 
 Qt5 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\5.4.0-x64\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" novacoin-qt64.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" XP-qt64.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс BDB
 
 set PATH=%PATH%;C:\Qt\4.8.6-x64\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_ASM=1" novacoin-qt64.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_ASM=1" XP-qt64.pro
 mingw32-make -f Makefile.Release
 
 Qt4 + транзакционный индекс LevelDB
 
 set PATH=%PATH%;C:\Qt\4.8.6-x64\bin
-cd C:\MyProjects\novacoin-master
-qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" novacoin-qt64.pro
+cd C:\MyProjects\XP-master
+qmake "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" XP-qt64.pro
 mingw32-make -f Makefile.Release
 
-Если всё сделано правильно, то файл novacoin-qt.exe будет находится в папке C:\MyProjects\novacoin-master\release
+Если всё сделано правильно, то файл XP-qt.exe будет находится в папке C:\MyProjects\XP-master\release
 
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Novacoin файлами.
+3) Распакуйте программу в папку с бинарными XP файлами.
 4) Введите в консоли
-upx -9 novacoind.exe
+upx -9 XPd.exe
 затем
-upx -9 novacoin-qt.exe
+upx -9 XP-qt.exe
 
-И ваши novacoind и novacoin-qt станут меньше ~ в 3 раза.
+И ваши XPd и XP-qt станут меньше ~ в 3 раза.
