@@ -6,6 +6,9 @@ It is possible to run XP as a Tor hidden service, and connect to such services.
 The following directions assume you have a Tor proxy running on port 9050. Many distributions default to having a SOCKS proxy listening on port 9050, but others may not. In particular, the Tor Browser Bundle defaults to listening on a random port. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.html.en#TBBSocksPort) for how to properly
 configure Tor.
 
+0. Setiing Up TOR relay.
+---------------------------------
+Go to https://tor-relay.co/ follow the steps to install
 
 1. Run XP behind a Tor proxy
 ---------------------------------
@@ -39,19 +42,20 @@ In a typical situation, this suffices to run behind a Tor proxy:
 
 If you configure your Tor system accordingly, it is possible to make your node also
 reachable from the Tor network. Add these lines to your /etc/tor/torrc (or equivalent
-config file):
+config file) and change socks to 9050:
 
-	HiddenServiceDir /var/lib/tor/XP-service/
+	HiddenServiceDir /var/lib/tor/ssh_hs/
 	HiddenServicePort 7777 127.0.0.1:7777
 	HiddenServicePort 17777 127.0.0.1:17777
 
 The directory can be different of course, but (both) port numbers should be equal to
 your XPd's P2P listen port (7777 by default, 17777 by default for testnet).
+Type sudo cat /var/lib/tor/ssh_hs/hostname on linux to get your onion address
 
 	-externalip=X   You can tell XP about its publicly reachable address using
 	                this option, and this can be a .onion address. Given the above
 	                configuration, you can find your onion address in
-	                /var/lib/tor/XP-service/hostname. Onion addresses are given
+	                /var/lib/tor/ssh_hs/hostname. Onion addresses are given
 	                preference for your node to advertize itself with, for connections
 	                coming from unroutable addresses (such as 127.0.0.1, where the
 	                Tor proxy typically runs).
@@ -83,17 +87,8 @@ for normal IPv4/IPv6 communication, use:
 
 	./XP -onion=127.0.0.1:9050 -externalip=youraddress.onion -discover
 
-Known addresses of XP nodes
+Known addresses of XP nodes. please open a request to add your own nodes to this list
 
-	seedp4knqnoei57u.onion
-	seedr3hhlepyi7fd.onion
-	seed3uuomkclbiz4.onion
-	seedeh7qck3ouff5.onion
-	seedt3sraf53ajiy.onion
-	seedg4qyccsg42oq.onion
-	novaqrtoywpg7jly.onion
-	seed3d5wolqbgrcb.onion
-	seed24u5dwph3qw4.onion
-	mj26ulzbs2oskgym.onion
-	eqon4usunavt76m7.onion
-	5rg3vq4jagckeckf.onion
+wgehbgohin7yzmir.onion:28192
+
+onhgygezjmjtxhgy.onion:28192
