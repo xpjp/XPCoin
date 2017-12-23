@@ -130,23 +130,23 @@ libboost_system-gcc-mt-s-1_57.a
 libboost_thread_pthread-gcc-mt-s-1_57.a
 
 2.4 LevelDB
--Зайдите на сайт https://github.com/novacoin-project/novacoin 
+-Зайдите на сайт https://github.com/XP-project/XP 
 -Нажмите Download ZIP
--Распакуйте novacoin-master.zip в C:\Android
+-Распакуйте XP-master.zip в C:\Android
 -Откройте MinGW shell (C:\MinGW\msys\1.0\msys.bat) и выполните следующий код:
 
-cd /c/android/novacoin-master/src/leveldb
+cd /c/android/XP-master/src/leveldb
 TARGET_OS=OS_ANDROID_CROSSCOMPILE make libleveldb.a libmemenv.a
 
 2.5 ifaddrs
 -Зайдите на сайт https://github.com/kmackay/android-ifaddrs
 -Нажмите Download ZIP
--Откройте архив android-ifaddrs-master.zip , выберите файлы ifaddrs.c и ifaddrs.h и извлеките их в C:\Android\novacoin-master\src
+-Откройте архив android-ifaddrs-master.zip , выберите файлы ifaddrs.c и ifaddrs.h и извлеките их в C:\Android\XP-master\src
 
 3. Компиляция
-3.1 Собираем Novacoin QT
+3.1 Собираем XP QT
 
-Откройте файл novacoin-qt.pro
+Откройте файл XP-qt.pro
 Вместо 
 
 #BOOST_LIB_SUFFIX=-mgw49-mt-s-1_55
@@ -223,12 +223,12 @@ LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -l
 -Вставьте в строку "Программа Ant" C:\Android\apache-ant-1.9.4\bin\ant.bat
 -Нажмите "OK"
 -Нажмите "Файл"->"Открыть файл или проект..."
--Найдите "novacoin-qt.pro" и нажмите "открыть"
+-Найдите "XP-qt.pro" и нажмите "открыть"
 -Поставьте галочку напротив Android для armeabi-v7a(GCC 4.9, Qt 5.4.0), остальные галочки уберите
 -Нажмите "Настроить проект"
 -Нажмите "Проекты"->"Сборка"->"Создать шаблоны"(картинка чтобы лучше понять https://yadi.sk/i/M8mhG2tce4cEy)
 -Нажмите "Завершить"
--В проекте novacoin-qt выберете Другие файлы->android->AndroidManifest.xml и задайте имя пакета, имя приложения, иконки приложения(Иконки находятся в папке C:\Android\novacoin-master\src\qt\res\icons) (Для Google Play Market иконка должна быть не менее 512x512)(https://yadi.sk/i/oY-OmnrWe4cTY)
+-В проекте XP-qt выберете Другие файлы->android->AndroidManifest.xml и задайте имя пакета, имя приложения, иконки приложения(Иконки находятся в папке C:\Android\XP-master\src\qt\res\icons) (Для Google Play Market иконка должна быть не менее 512x512)(https://yadi.sk/i/oY-OmnrWe4cTY)
 -Возьмите ваш Android телефон/планшет(версия должна быть от 2.3 и выше)
 -Перейдите в "Настройки"->"Приложения".
 -Поставьте галочку напротив "Неизвестные источники"
@@ -240,7 +240,7 @@ LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -l
 -В QtCreator'е нажмите на зеленого робота и выберите Сборка: Выпуск
 -Нажмите зеленую стрелку(Запустить)(https://yadi.sk/i/hKHKL_Phe4EFL)
 -Выберите свой телефон/планшет, нажмите OK и ждите завершения компиляции.
--После завершения компиляции Novacoin-Qt будет установлен на ваш телефон/планшет и запущен. А в папке C:\Android\build-novacoin-qt-Android_armeabi_v7a_GCC_4_9_Qt_5_4_0-Release\android-build\bin будет файл QtApp-debug.apk. Переименуйте его в Novacoin-Qt-0.5.1-debug.apk и можно распростронять :)
+-После завершения компиляции XP-Qt будет установлен на ваш телефон/планшет и запущен. А в папке C:\Android\build-XP-qt-Android_armeabi_v7a_GCC_4_9_Qt_5_4_0-Release\android-build\bin будет файл QtApp-debug.apk. Переименуйте его в XP-Qt-0.5.1-debug.apk и можно распростронять :)
 
 Изменения для Android X86
 1. Добавить путь C:\Android\android-ndk-r10d\toolchains\x86-4.9\prebuilt\windows-x86_64\bin в переменную PATH

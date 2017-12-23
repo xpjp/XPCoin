@@ -6,7 +6,7 @@ inherit db-use eutils fdo-mime gnome2-utils kde4-functions qt4-r2
 
 DB_VER="4.8"
 
-DESCRIPTION="NovaCoin - a hybrid PoW+PoS energy efficient p2p-cryptocurrency and electronic payment system."
+DESCRIPTION="XP - a hybrid PoW+PoS energy efficient p2p-cryptocurrency and electronic payment system."
 HOMEPAGE="https://novaco.in/"
 SRC_URI="https://github.com/${PN}-project/${PN}/archive/nvc-v${PV}.tar.gz -> ${PN}-${PV}.tar.gz"
 
@@ -82,13 +82,13 @@ src_install() {
 	dobin ${PN}-qt
 
 	insinto /usr/share/pixmaps
-	newins "src/qt/res/icons/novacoin-128.png" "${PN}.png"
+	newins "src/qt/res/icons/XP-128.png" "${PN}.png"
 
-	make_desktop_entry "${PN}-qt" "Novacoin" "/usr/share/pixmaps/${PN}.png" "Network;P2P;Finance;"
+	make_desktop_entry "${PN}-qt" "XP" "/usr/share/pixmaps/${PN}.png" "Network;P2P;Finance;"
 
 	if use kde; then
 		insinto /usr/share/kde4/services
-		newins contrib/debian/novacoin-qt.protocol ${PN}.protocol
+		newins contrib/debian/XP-qt.protocol ${PN}.protocol
 	fi
 }
 

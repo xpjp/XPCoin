@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2013 The NovaCoin developers
+// Copyright (c) 2013 The XP developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -365,7 +365,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, CTransaction *txCoinStake)
 
         if (!fProofOfStake)
         {
-            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits, nFees);
+            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pblock->nBits, nFees, pindexPrev->nHeight + 1);
 
             if (fDebug)
                 printf("CreateNewBlock(): PoW reward %" PRIu64 "\n", pblock->vtx[0].vout[0].nValue);
@@ -551,7 +551,7 @@ bool FillMap(CWallet *pwallet, uint32_t nUpperTime, MidstateMap &inputsMap)
 
         CoinsSet setCoins;
         int64_t nValueIn = 0;
-        if (!pwallet->SelectCoinsSimple(nBalance - nReserveBalance, MIN_TX_FEE, MAX_MONEY, nUpperTime, nCoinbaseMaturity * 10, setCoins, nValueIn))
+        if (!pwallet->SelectCoinsSimple(nBalance - nReserveBalance, MIN_TX_FEE, MAX_MONEY, nUpperTime, nCoinbaseMaturity + 10, setCoins, nValueIn))
             return error("FillMap() : SelectCoinsSimple failed");
 
         if (setCoins.empty())
@@ -658,7 +658,7 @@ void ThreadStakeMiner(void* parg)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("novacoin-miner");
+    RenameThread("XP-miner");
     CWallet* pwallet = (CWallet*)parg;
 
     MidstateMap inputsMap;
@@ -703,9 +703,9 @@ void ThreadStakeMiner(void* parg)
 
             if (fTrySync)
             {
-                // Don't try mine blocks unless we're at the top of chain and have at least three p2p connections.
+                // Don't try mine blocks unless we're at the top of chain and have at least two p2p connections.
                 fTrySync = false;
-                if (vNodes.size() < 3 || nBestHeight < GetNumBlocksOfPeers())
+                if (vNodes.size() < 2 || nBestHeight < GetNumBlocksOfPeers())
                 {
                     Sleep(1000);
                     continue;

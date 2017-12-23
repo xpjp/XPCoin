@@ -114,7 +114,7 @@
     <ClCompile Include="..\..\src\qt\monitoreddatamapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mynovacoinqt_plugin_import.cpp">
+    <ClCompile Include="myXPqt_plugin_import.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\qt\notificator.cpp">
@@ -657,10 +657,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\MyProjects\Novacoin\src\qt\locale\bitcoin_en.ts">
+    <None Include="C:\MyProjects\XP\src\qt\locale\bitcoin_en.ts">
       <Filter>Translation Files</Filter>
     </None>
-    <None Include="C:\MyProjects\Novacoin\src\qt\locale\bitcoin_ru.ts">
+    <None Include="C:\MyProjects\XP\src\qt\locale\bitcoin_ru.ts">
       <Filter>Translation Files</Filter>
     </None>
     <None Include="..\..\src\qt\res\icons\bitcoin.icns">
@@ -802,10 +802,10 @@
     <None Include="..\..\src\qt\res\icons\mining_inactive.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\src\qt\res\icons\novacoin-128.png">
+    <None Include="..\..\src\qt\res\icons\XP-128.png">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="..\..\src\qt\res\icons\novacoin-16.png">
+    <None Include="..\..\src\qt\res\icons\XP-16.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\..\src\qt\res\icons\overview.png">
@@ -855,7 +855,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="C:\MyProjects\Novacoin\MSVC\mynovacoinqt\mynovacoinqt_resource.rc" />
+    <ResourceCompile Include="C:\MyProjects\XP\MSVC\myXPqt\myXPqt_resource.rc" />
     <ResourceCompile Include="icon.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
@@ -867,19 +867,19 @@
     <Image Include="..\..\src\qt\res\icons\notsynced.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\novacoin.ico">
+    <Image Include="..\..\src\qt\res\icons\XP.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\novacoin.png">
+    <Image Include="..\..\src\qt\res\icons\XP.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\novacoin-32.png">
+    <Image Include="..\..\src\qt\res\icons\XP-32.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\novacoin-48.png">
+    <Image Include="..\..\src\qt\res\icons\XP-48.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\..\src\qt\res\icons\novacoin-80.png">
+    <Image Include="..\..\src\qt\res\icons\XP-80.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

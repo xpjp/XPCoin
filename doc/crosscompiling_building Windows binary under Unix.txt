@@ -139,9 +139,9 @@ Using Qt version 5.4.0 in /home/<ваше имя>/mxe/usr/i686-w64-mingw32.stati
 -Перейдите в домашнюю папку
 -Откройте терминал
 
- git clone https://github.com/novacoin-project/novacoin.git
+ git clone https://github.com/XP-project/XP.git
 
-3.2 Собираем novacoind 
+3.2 Собираем XPd 
 -Откройте файл makefile.mingw в текстовом редакторе.(При написании инструкции использовался Pluma 1.8.1)
 -Вставьте 
 CC=$(CROSS)gcc
@@ -191,7 +191,7 @@ USE_LEVELDB:=0
 на
 USE_LEVELDB:=1
 (выше USE_IPV6:=1)
-Откройте файл /home/<ваше имя>/novacoin/src/leveldb/Makefile
+Откройте файл /home/<ваше имя>/XP/src/leveldb/Makefile
 Вставьте ниже строчки CXXFLAGS += -I. -I./include $(PLATFORM_CXXFLAGS) $(OPT) следующие строки:
 
 CC=$(CROSS)gcc
@@ -213,10 +213,10 @@ obj/txdb-leveldb.o: leveldb/libleveldb.a
 -Сохраните измененный файл makefile.mingw
 
 -Откройте терминал
-cd /home/<ваше имя>/novacoin/src
+cd /home/<ваше имя>/XP/src
 export PATH=/home/<ваше имя>/mxe/usr/bin:$PATH
 make CROSS=i686-w64-mingw32.static- -f makefile.mingw
-strip novacoind.exe
+strip XPd.exe
 
 
 Во время линковки будут выдаваться подобные сообщения:
@@ -224,16 +224,16 @@ libboost_thread_win32-mt.a(thread.o): duplicate section `.rdata$_ZTVN5boost16exc
 Игнорируйте их. На работоспособность программы это никак не влияет
 
 
-3.3 Собираем Novacoin QT
+3.3 Собираем XP QT
 
-Внимание: Если вы хотите собирать Novacoin Qt с LevelDB, но пропустили шаг со сборкой novacoind.exe, то 
+Внимание: Если вы хотите собирать XP Qt с LevelDB, но пропустили шаг со сборкой XPd.exe, то 
 -Измените Makefile в папке leveldb также как в пункте 3.2
 -Откройте терминал и выполните следующие команды:
 export PATH=/home/<ваше имя>/mxe/usr/bin:$PATH
-cd /home/<ваше имя>/novacoin/src/leveldb
+cd /home/<ваше имя>/XP/src/leveldb
 TARGET_OS=NATIVE_WINDOWS make CROSS=i686-w64-mingw32.static- libleveldb.a libmemenv.a;
 
--Откройте файл /home/<ваше имя>/novacoin/novacoin-qt.pro в текстовом редакторе(при написании инструкции использовался Pluma 1.8.1)
+-Откройте файл /home/<ваше имя>/XP/XP-qt.pro в текстовом редакторе(при написании инструкции использовался Pluma 1.8.1)
 -Ниже 
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -281,39 +281,39 @@ windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX -Wl,-Bstatic -lpthread -Wl,-Bdy
 на
 windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX
 
--Сохраните измененный файл novacoin-qt.pro
+-Сохраните измененный файл XP-qt.pro
 -Откройте терминал и выполните следующие команды
 
 Qt4 + транзакционный индекс LevelDB
 
 export PATH=/home/<ваше имя>/mxe/usr/bin:$PATH
-cd /home/<ваше имя>/novacoin
-i686-w64-mingw32.static-qmake-qt4 "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" novacoin-qt.pro
+cd /home/<ваше имя>/XP
+i686-w64-mingw32.static-qmake-qt4 "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" XP-qt.pro
 make -j n -f Makefile.Release  (вместо n количество ядер вашего процессора, которые вы хотите выделить под сборку)
 
 Qt4 + транзакционный индекс BDB
 
 export PATH=/home/<ваше имя>/mxe/usr/bin:$PATH
-cd /home/<ваше имя>/novacoin
-i686-w64-mingw32.static-qmake-qt4 "USE_IPV6=1" "USE_ASM=1" novacoin-qt.pro
+cd /home/<ваше имя>/XP
+i686-w64-mingw32.static-qmake-qt4 "USE_IPV6=1" "USE_ASM=1" XP-qt.pro
 make -j n -f Makefile.Release  (вместо n количество ядер вашего процессора, которые вы хотите выделить под сборку)
 
 Qt5 + транзакционный индекс LevelDB
 
 export PATH=/home/<ваше имя>/mxe/usr/bin:$PATH
-cd /home/<ваше имя>/novacoin
-i686-w64-mingw32.static-qmake-qt5 "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" novacoin-qt.pro
+cd /home/<ваше имя>/XP
+i686-w64-mingw32.static-qmake-qt5 "USE_IPV6=1" "USE_LEVELDB=1" "USE_ASM=1" XP-qt.pro
 make -j n -f Makefile.Release  (вместо n количество ядер вашего процессора, которые вы хотите выделить под сборку)
 
 Qt5 + транзакционный индекс BDB
 
 export PATH=/home/<ваше имя>/mxe/usr/bin:$PATH
-cd /home/<ваше имя>/novacoin
-i686-w64-mingw32.static-qmake-qt5 "USE_IPV6=1" "USE_ASM=1" novacoin-qt.pro
+cd /home/<ваше имя>/XP
+i686-w64-mingw32.static-qmake-qt5 "USE_IPV6=1" "USE_ASM=1" XP-qt.pro
 make -j n -f Makefile.Release  (вместо n количество ядер вашего процессора, которые вы хотите выделить под сборку)
 
 
-Если всё сделано правильно, то файл novacoin-qt.exe будет находится в папке /home/<ваше имя>/novacoin/release
+Если всё сделано правильно, то файл XP-qt.exe будет находится в папке /home/<ваше имя>/XP/release
 Во время линковки будут выдаваться подобные сообщения:
 libboost_thread_win32-mt.a(thread.o): duplicate section `.rdata$_ZTVN5boost16exception_detail10clone_implINS0_19error_info_injectorINS_9gregorian9bad_monthEEEEE[__ZTVN5boost16exception_detail10clone_implINS0_19error_info_injectorINS_9gregorian9bad_monthEEEEE]' has different size
 Игнорируйте их. На работоспособность программы это никак не влияет 
@@ -321,10 +321,10 @@ libboost_thread_win32-mt.a(thread.o): duplicate section `.rdata$_ZTVN5boost16exc
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Novacoin файлами.
+3) Распакуйте программу в папку с бинарными XP файлами.
 4) Введите в терминале
-./upx -9 novacoind.exe
+./upx -9 XPd.exe
 затем
-./upx -9 novacoin-qt.exe
+./upx -9 XP-qt.exe
 
-И ваши novacoind и novacoin-qt станут меньше ~ в 3 раза.
+И ваши XPd и XP-qt станут меньше ~ в 3 раза.

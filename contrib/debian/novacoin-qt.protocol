@@ -1,6 +1,6 @@
 [Protocol]
-exec=novacoin-qt '%u'
-protocol=novacoin
+exec=XP-qt '%u'
+protocol=XP
 input=none
 output=none
 helper=true

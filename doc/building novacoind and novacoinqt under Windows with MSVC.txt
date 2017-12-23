@@ -95,31 +95,31 @@ buildqt64.bat
 (Если у вас английская версия, то это выглядит так: Tools->Options->Text Editor->All Languages->Tabs и поставьте флажок "Insert Spaces" вместо "Keep Tabs".)
 
 3.1 Скачиваем исходники
--Зайдите на сайт https://github.com/novacoin-project/novacoin 
+-Зайдите на сайт https://github.com/XP-project/XP 
 -Нажмите Download ZIP
--Распакуйте novacoin-master.zip в C:\MyProjects
--переименуйте novacoin-master в Novacoin
+-Распакуйте XP-master.zip в C:\MyProjects
+-переименуйте XP-master в XP
 
 3.2 Компиляция
 -Откройте Microsoft Visual Studio 2012
--Откройте файл C:\MyProjects\Novacoin\MSVC\NovacoinSolution.sln
--Можете компилировать и NovacoinD и NovacoinQT 
+-Откройте файл C:\MyProjects\XP\MSVC\XPSolution.sln
+-Можете компилировать и XPD и XPQT 
 (по-умолчанию выставлена компиляция с LevelDB, если вы хотите компилировать с BerkleyDB, то
 -Выберете проект libcommon, перейдите в свойства -> С\С++ -> Препроцессор, удалите USE_LEVELDB
 -Удалите из проекта libcommon libcommon -> Source Files -> txdb-leveldb.cpp и добавьте в проект
 txdb-bdb.cpp
 -Удалите из проекта libcommon libcommon -> Header Files -> txdb-leveldb.h и добавьте в проект
 txdb-bdb.h
--Выберете проект NovacoinD, перейдите в свойства -> С\С++ -> Препроцессор, удалите USE_LEVELDB
--Выберете проект NovacoinQT, перейдите в свойства -> С\С++ -> Препроцессор, удалите USE_LEVELDB
+-Выберете проект XPD, перейдите в свойства -> С\С++ -> Препроцессор, удалите USE_LEVELDB
+-Выберете проект XPQT, перейдите в свойства -> С\С++ -> Препроцессор, удалите USE_LEVELDB
 
 Если вы хотите уменьшить размер бинарных файлов, то
 1) Перейдите на сайт http://upx.sourceforge.net/#downloadupx
 2) Скачайте программу в соответсвии с вашей системой
-3) Распакуйте программу в папку с бинарными Novacoin файлами.
+3) Распакуйте программу в папку с бинарными XP файлами.
 4) Введите в консоли
-upx -9 NovacoinD.exe
+upx -9 XPD.exe
 затем
-upx -9 NovacoinQT.exe
+upx -9 XPQT.exe
 
-И ваши NovacoinD и NovacoinQT станут меньше ~ в 3 раза.
+И ваши XPD и XPQT станут меньше ~ в 3 раза.

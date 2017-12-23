@@ -1,24 +1,24 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          novacoind
+# Provides:          XPd
 # Required-Start:    $network
 # Required-Stop:     $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: novacoind daemon startup script
-# Description:       novacoind daemon startup script
+# Short-Description: XPd daemon startup script
+# Description:       XPd daemon startup script
 ### END INIT INFO
 
 # Do NOT "set -e"
 
 # PATH should only include /usr/* if it runs after the mountnfs.sh script
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC="NovaCoin Daemon"
-NAME=novacoind
-DAEMON=/opt/novacoin/$NAME
+DESC="XP Daemon"
+NAME=XPd
+DAEMON=/opt/XP/$NAME
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
-CHUID=novacoin:novacoin
+CHUID=XP:XP
 DAEMON_ARGS="-daemon -pid=$PIDFILE"
 
 # Exit if the package is not installed

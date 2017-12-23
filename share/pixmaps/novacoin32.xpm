@@ -1,5 +1,5 @@
 /* XPM */
-static char *novacoin_32[] = {
+static char *XP_32[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 172 2 ",
 "   c #6B3F0A",
